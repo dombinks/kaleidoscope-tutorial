@@ -2,10 +2,8 @@
 // Created by Dom Binks on 16/04/2026.
 //
 
-#include <stdio.h>
+#include <cstdio>
 #include "lexer.h"
-
-using namespace std;
 
 static int gettok() {
   static int LastChar = ' ';
@@ -18,11 +16,13 @@ static int gettok() {
     while (isalnum(LastChar = getchar()))
       IdentifierStr += static_cast<char>(LastChar);
 
-      if (IdentifierStr == "def")
-        return tok_def;
-      if (IdentifierStr == "extern")
-        return tok_extern;
-      return tok_identifier;
+    if (IdentifierStr == "def")
+      return tok_def;
+
+    if (IdentifierStr == "extern")
+      return tok_extern;
+
+    return tok_identifier;
   }
 
   if (isdigit(LastChar) || LastChar == '.') {

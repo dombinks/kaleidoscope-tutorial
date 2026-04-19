@@ -21,6 +21,7 @@ enum Token {
 
 static std::string IdentifierStr;
 static double NumVal;
+
 static int gettok();
 
 #endif //KALEIDOSCOPE_TUTORIAL_LEXER_H
