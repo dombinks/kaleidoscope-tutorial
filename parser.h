@@ -12,18 +12,22 @@
 class ExprAST;
 class PrototypeAST;
 
-static int CurTok;
-static std::map<char, int> BinOpPrecedence;
+inline int CurTok;
+inline std::map<char, int> BinOpPrecedence;
 
-static int getNextToken();
+int getNextToken();
 std::unique_ptr<ExprAST> LogError(const char *);
 std::unique_ptr<PrototypeAST> LogErrorP(const char *);
-static std::unique_ptr<ExprAST> ParseNumberExpr();
-static std::unique_ptr<ExprAST> ParseParenExpr();
-static std::unique_ptr<ExprAST> ParseIdentifierExpr();
-static std::unique_ptr<ExprAST> ParsePrimary();
-static int GetTokPrecedence();
-static std::unique_ptr<ExprAST> ParseExpression();
-static std::unique_ptr<ExprAST> ParseBinOpRHS(int, std::unique_ptr<ExprAST>);
+std::unique_ptr<ExprAST> ParseNumberExpr();
+std::unique_ptr<ExprAST> ParseParenExpr();
+std::unique_ptr<ExprAST> ParseIdentifierExpr();
+std::unique_ptr<ExprAST> ParsePrimary();
+int GetTokPrecedence();
+std::unique_ptr<ExprAST> ParseExpression();
+std::unique_ptr<ExprAST> ParseBinOpRHS(int, std::unique_ptr<ExprAST>);
+std::unique_ptr<PrototypeAST> ParsePrototype();
+std::unique_ptr<FunctionAST> ParseDefinition();
+std::unique_ptr<PrototypeAST> ParseExtern();
+std::unique_ptr<FunctionAST> ParseTopLevelExpression();
 
 #endif //KALEIDOSCOPE_TUTORIAL_PARSER_H

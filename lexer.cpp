@@ -5,8 +5,8 @@
 #include <cstdio>
 #include "lexer.h"
 
-static int gettok() {
-  static int LastChar = ' ';
+int gettok() {
+  int LastChar = ' ';
 
   while (isspace(LastChar))
     LastChar = getchar();

@@ -19,9 +19,9 @@ enum Token {
   tok_number = -5,
 };
 
-static std::string IdentifierStr;
-static double NumVal;
+inline std::string IdentifierStr;
+inline double NumVal;
 
-static int gettok();
+int gettok();
 
 #endif //KALEIDOSCOPE_TUTORIAL_LEXER_H
